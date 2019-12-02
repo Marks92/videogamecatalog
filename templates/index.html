@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <a href="{% url 'games' %}">Show Games</a>
+
+   <h1>List of Video Games and Genres</h1>
+
+
+    {% for game in games %}
+        <h4> Game Genre: {{ game.game_genre }}, Game name: {{ game.game_name }}</h4>
+    {% endfor %}
+
+
+{% endblock %}

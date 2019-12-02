@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+        <link rel="stylesheet" href="{% static 'css/Welcome.css' %}">
+{% endblock %}
+
+{% block content %}
+
+        <div class="navbar">
+            <a href="{% url 'welcome' %}">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Genres
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'games' %}">First Person Shooter</a>
+                    <a href="{% url 'games' %}">Role Playing Game</a>
+                    <a href="{% url 'games' %}">Real Time Strategy</a>
+                </div>
+            </div>
+            <a href= "{% url 'login' %}" class="log_in">Log in</a>
+            <a href="{% url 'login' %}" class="sign_up">Sign up</a>
+        </div>
+        <h1 class="welcome_message">You are now logged into Videogame website!</h1>
+
+        <h2 class="welcome_name"> Welcome {{ name }} !</h2>
+        <img src="{% static 'images/battlefieldv.jpg' %}">
+
+        <h3> Feel free to check out our catalog of video games and remember to sign in at the top!</h3>
+        <a href="{% url 'games' %}">view games</a>
+        <a href="{% url 'delete' user.id %}">remove user</a>
+        <a href="{% url 'update' user.id %}">update user</a>
+        <a href="{% url 'logout' %}">log out</a>
+
+{% endblock %}

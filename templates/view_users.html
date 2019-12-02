@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% comment %}<a href="{% url 'users' %}">Show Games</a> {% endcomment %}
+
+   <h1>List of Users</h1>
+
+    {% for user in users %}
+        {% if user.id != 1 %} {% comment %} used to not display admin {% endcomment %}
+            <h4>First name: {{ user.first_name }} Last name:  {{ user.last_name }}: Username: {{ user.username }}</h4>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}
