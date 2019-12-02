@@ -3,7 +3,7 @@
 
 {% block content %}
     {% comment %}<a href="{% url 'users' %}">Show Games</a> {% endcomment %}
-
+{% if user.is_authenticated %}
    <h1>List of Users</h1>
 
     {% for user in users %}
@@ -11,6 +11,13 @@
             <h4>First name: {{ user.first_name }} Last name:  {{ user.last_name }}: Username: {{ user.username }}</h4>
         {% endif %}
     {% endfor %}
+    <button onclick="window.location.href = '{% url 'welcome' %}';">Back to home page</button>
+    <button onclick="window.location.href = '{% url 'register' %}';">Sign up now!</button>
+    {% else %}
+            <script>
+                window.location = {% url 'register' %}
+            </script>
+    {% endif %}
 
 
 {% endblock %}

@@ -1,0 +1,11 @@
+.games {
+    text-align: center;
+}
+.games h4:hover {
+    color: green;
+    text-transform: capitalize;
+}
+.games h1:hover {
+    color: red;
+    text-transform: capitalize;
+}

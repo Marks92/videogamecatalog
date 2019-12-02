@@ -25,6 +25,10 @@ li a {
   float: left;
   overflow: hidden;
 }
+.dropdown2 {
+  float: left;
+  overflow: hidden;
+}
 
 /* Dropdown button */
 .dropdown .dropbtn {
@@ -78,10 +82,42 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border:6px solid #021a40;
 }
 .welcome_message {
   text-align: center;
 }
+.welcome_message:hover {
+  color: blue;
+  text-transform: capitalize;
+}
 .welcome_name {
   text-align: center;
+}
+.welcome_name:hover {
+  color: blue;
+  text-transform: capitalize;
+}
+.feel_free {
+  text-align: center;
+}
+.feel_free:hover {
+  color: blue;
+  text-transform: capitalize;
+}
+.bottom_bar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+.bottom_bar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.bottom_bar a:hover {
+  background-color: red;
 }
