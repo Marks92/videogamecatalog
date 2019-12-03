@@ -11,12 +11,13 @@
 
     {% if user.is_authenticated %}
     <div class="games">
-
+    <fieldset style="background-color:lightblue;">
         <h1 class="list_games">List of Video Games and Genres</h1>
         {% for game in games %}
-            <h4> Game Genre: {{ game.game_genre }}, Game name: {{ game.game_name }}</h4>
+            <h4> {{ game.game_genre }}: {{ game.game_name }}</h4>
         {% endfor %}
     <button onclick="window.location.href = '{% url 'welcome' %}';" class="button">Back to home page</button>
+    </fieldset>
     </div>
     {% else %}
             <script>

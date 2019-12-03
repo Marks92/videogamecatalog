@@ -4,6 +4,6 @@
     margin-right: 100px;
 }
 fieldset {
-   text-align: center;
+    display: inline-block;
 }
 

@@ -1,18 +1,29 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block styles %}
+        <link rel="stylesheet" href="{% static 'css/user_form.css' %}">
+{% endblock %}
+
 
 {% block content %}
 {% if user.is_authenticated %}
-    <h1>Update User</h1>
-    <form method="POST">
-    {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Save">
-    </form>
-    {% else %}
-            <script>
-                window.location = {% url 'register' %}
-            </script>
+    <div class="update_user">
+    <fieldset style="background-color:lightblue;">
+        <h1>Update User</h1>
+        <form method="POST">
+        {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Save">
+        </form>
+        {% else %}
+                <script>
+                    window.location = {% url 'register' %}
+                </script>
+    </fieldset>
+    </div>
     {% endif %}
+
 
 {% endblock %}

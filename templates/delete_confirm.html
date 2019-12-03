@@ -1,13 +1,28 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <h1>Confirm</h1>
+{% load static %}
 
-    <form method="POST">
-        {% csrf_token %}
-        <h2>Are you sure that you want to delete {{ user.first_name }} {{ user.last_name }}?</h2>
-        <input type="submit" value="Yes, I am sure!">
-    </form>
+{% block styles %}
+        <link rel="stylesheet" href="{% static 'css/delete_confirm.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="delete_confirm">
+        <fieldset style="background-color:black;">
+        <h1>Confirm</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Are you sure that you want to delete {{ user.first_name }} {{ user.last_name }}?</h2>
+            <input type="submit" value="Yes, I am sure!">
+            <h2></h2>
+        </form>
+            <form>
+                <h2>No I'm not take me home!</h2>
+                <a href="{% url 'welcome' %}" class="home_button">Home</a>
+            </form>
+        </fieldset>
+    </div>
 
 
 {% endblock %}

@@ -3,6 +3,7 @@ from django.contrib.auth.models import auth, User
 from django.contrib import messages
 from .models import Games, Genres
 from .forms import UserForm
+from django.http import JsonResponse
 
 # Create your views here.
 def login(request):
@@ -78,6 +79,27 @@ def delete_user(request, id):
         return redirect('users')
 
     return render(request, 'delete_confirm.html', {'user': user})
+
+def delete_user_ajax(request):
+    id = request.POST.get('id', None)
+    if (id is not None):
+        #delere the product
+        user = User.objects.get(id=id)
+        user.delete()
+
+        #return a response to the client
+        #Response in JSON format, it can contain any data that you want to send to the client
+        data = {
+            'deleted': True
+        }
+
+        return JsonResponse(data)
+    else:
+        data = {
+            'deleted': False,
+            'error': 'id cannot be found'
+        }
+        return JsonResponse(data)
 
 def update_user(request, id):
     user = User.objects.get(id=id)
